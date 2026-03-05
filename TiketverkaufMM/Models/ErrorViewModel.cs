@@ -1,9 +1,9 @@
-namespace TiketverkaufMM.Models
-{
-    public class ErrorViewModel
-    {
-        public string? RequestId { get; set; }
+//namespace TicketverkaufMM.Models
+//{
+//    public class ErrorViewModel
+//    {
+//        public string? RequestId { get; set; }
 
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
-    }
-}
+//        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+//    }
+//}

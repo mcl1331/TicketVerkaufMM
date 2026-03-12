@@ -16,6 +16,12 @@
     </div>
 
     <div class="mb-3">
+        <label asp-for="Personenanzahl" class="form-label"></label>
+        <input asp-for="Personenanzahl" class="form-control" />
+        <span asp-validation-for="Personenanzahl" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
         <label asp-for="TischId" class="form-label"></label>
         <input asp-for="TischId" class="form-control" />
         <span asp-validation-for="TischId" class="text-danger"></span>

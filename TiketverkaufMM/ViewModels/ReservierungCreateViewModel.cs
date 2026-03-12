@@ -8,6 +8,11 @@ namespace TicketverkaufMM.ViewModels
         [Display(Name ="User ID")]
         public int UserId { get; set; }
 
+        [Required(ErrorMessage ="Bitte Personenanzahl eingeben.")]
+        [Range(1, 100, ErrorMessage ="Mindestens 1 Person")]
+        [Display(Name ="Personenanzahl")]
+        public int Personenanzahl { get; set; }
+
         [Required(ErrorMessage ="Bitte Tisch ID eingeben")]
         [Display(Name ="Tisch ID")]
         public int TischId { get; set; }

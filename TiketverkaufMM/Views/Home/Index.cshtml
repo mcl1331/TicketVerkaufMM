@@ -2,7 +2,20 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row align-items-center my-4">
+    <!-- Text links -->
+    <div class="col-md-6">
+        <h1 class="display-4 fw-bold">Willkommen</h1>
+        <p class="lead mt-3">
+            Reserviere jetzt deinen Tisch oder deine Tickets bequem online.
+        </p>
+        <a asp-controller="Reservierungs" asp-action="Create" class="btn btn-primary btn-lg mt-2">
+            Jetzt reservieren
+        </a>
+    </div>
+
+    <!-- Bild rechts -->
+    <div class="col-md-6 text-center">
+        <img src="~/Image.png" alt="Event" class="img-fluid rounded shadow" />
+    </div>
 </div>

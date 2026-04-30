@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace TicketverkaufMM.Controllers
+namespace TicketverkaufMM.Controllers;
+
+public class EventController : Controller
 {
-    public class EventController : Controller
+    public IActionResult Index()
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        return View();
     }
 }

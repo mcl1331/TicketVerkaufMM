@@ -18,7 +18,6 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="NewFolder\" />
-    <Folder Include="Views\Account\" />
     <Folder Include="Views\Ticket\" />
   </ItemGroup>
 

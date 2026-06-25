@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<TicketverkaufMM.Models.Reservierung>
+
+@{
     ViewData["Title"] = "Reservierungen";
 }
 
@@ -19,27 +21,28 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Platzhalter bis Backend fertig ist -->
-            <tr>
-                <td>09.04.2026</td>
-                <td>Rock Night</td>
-                <td>Tisch 3</td>
-                <td>4</td>
-                <td>
-                    <a href="#" class="btn btn-sm btn-outline-primary">Details</a>
-                    <a href="#" class="btn btn-sm btn-outline-danger">Löschen</a>
-                </td>
-            </tr>
-            <tr>
-                <td>10.04.2026</td>
-                <td>Jazz Evening</td>
-                <td>Tisch 1</td>
-                <td>2</td>
-                <td>
-                    <a href="#" class="btn btn-sm btn-outline-primary">Details</a>
-                    <a href="#" class="btn btn-sm btn-outline-danger">Löschen</a>
-                </td>
-            </tr>
+            @if (!Model.Any())
+            {
+                <tr>
+                    <td colspan="5" class="text-center text-muted">Noch keine Reservierungen vorhanden.</td>
+                </tr>
+            }
+            else
+            {
+                @foreach (var r in Model)
+                {
+                    <tr>
+                        <td>@r.Datum.ToString("dd.MM.yyyy")</td>
+                        <td>@r.EventName</td>
+                        <td>Tisch @r.TischId</td>
+                        <td>@r.Personenanzahl</td>
+                        <td>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Details</a>
+                            <a href="#" class="btn btn-sm btn-outline-danger">Löschen</a>
+                        </td>
+                    </tr>
+                }
+            }
         </tbody>
     </table>
 </div>

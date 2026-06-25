@@ -10,5 +10,7 @@ namespace TicketverkaufMM.Data
             : base(options)
         {
         }
+
+        public DbSet<Reservierung> Reservierungen { get; set; }
     }
 }

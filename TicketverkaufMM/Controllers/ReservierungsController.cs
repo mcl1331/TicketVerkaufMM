@@ -1,13 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TicketverkaufMM.Data;
+using TicketverkaufMM.Models;
 using TicketverkaufMM.ViewModels;
 
 namespace TicketverkaufMM.Controllers
 {
     public class ReservierungsController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public ReservierungsController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            var reservierungen = _context.Reservierungen
+                .OrderBy(r => r.Datum)
+                .ToList();
+            return View(reservierungen);
         }
 
         [HttpGet]
@@ -19,9 +31,21 @@ namespace TicketverkaufMM.Controllers
         [HttpPost]
         public IActionResult Create(ReservierungCreateViewModel vm)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
                 return View(vm);
-            return RedirectToAction("Success");
+
+            var reservierung = new Reservierung
+            {
+                Personenanzahl = vm.Personenanzahl,
+                TischId = vm.TischId,
+                EventName = vm.EventName,
+                Datum = vm.Datum
+            };
+
+            _context.Reservierungen.Add(reservierung);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         public IActionResult Success()
